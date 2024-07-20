@@ -1,10 +1,14 @@
 import mysql from 'mysql2/promise';
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '1223Cale',
-  database: 'blox_db'
+  host: 'blox-db.cvgqg8c84kbe.us-east-1.rds.amazonaws.com', // Replace with your database host
+  user: 'blox_13031d8d',      // Replace with your database user
+  password: 'Dr&72zx31Vk3z786$b',  // Replace with your database password
+  database: 'blox_db',    // Replace with your database name
+  ssl: 'Amazon RDS',     // If you need SSL, ensure it's configured correctly
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 export const saveUserWallet = async (userId, walletAddress) => {
